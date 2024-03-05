@@ -1,40 +1,32 @@
-<span style="color:white; font-size:30px">Proceso ETL con MySQL, MongoDB, AWS y Análisis de Datos con Python.</span>
-
+## Proceso ETL con MySQL, MongoDB, AWS y Análisis de Datos con Python.
 En este proyecto, exploraremos el proceso de Extracción, Transformación y Carga (ETL) de datos utilizando tecnologías como MySQL, MongoDB, AWS y Python. Comenzaremos descargando un conjunto de datos de una plataforma que ofrece datos gratuitos para desarrolladores. Este conjunto de datos servirá como punto de partida para nuestro análisis y procesamiento de datos.
 
 El proceso de ETL implicará la extracción de datos de múltiples fuentes, incluidos archivos TXT, bases de datos MongoDB y archivos almacenados en Amazon S3. Utilizaremos Python para manipular y transformar los datos según sea necesario, preparándolos para su carga en nuestras bases de datos relacionales en MySQL.
 
 Una vez que los datos estén cargados en nuestras bases de datos, realizaremos análisis de datos utilizando herramientas y bibliotecas de análisis de datos en Python.
 
-<span style="color:white; font-size:30px">Arquitectura de flujo de datos</span>
+### Arquitectura de flujo de datos
 
 [![Arquitectura-de-flujo-de-datos-drawio-drawio.png](https://i.postimg.cc/6pyNDNMs/Arquitectura-de-flujo-de-datos-drawio-drawio.png)](https://postimg.cc/zyZMg4mp)
 
-<span style="color:white; font-size:30px">Estructura del Proyecto</span>
-
+### Estructura del Proyecto
 El proyecto está organizado en varios directorios, cada uno con un propósito específico:
 
-<span style="color:white; font-size:14px">**arquitectura**: </span>
-Contiene modelos de datos para la base de datos OLTP y OLAP. Aquí se definen las estructuras de tablas y relaciones para almacenar los datos de manera transaccional y analítica.
+**arquitectura**: Contiene modelos de datos para la base de datos OLTP y OLAP. Aquí se definen las estructuras de tablas y relaciones para almacenar los datos de manera transaccional y analítica.
 
-<span style="color:white; font-size:14px">**config**: </span>
-En este directorio se encuentran las credenciales de acceso a servicios en la nube y la configuración de bases de datos. Es importante mantener esta información segura y separada del código fuente.
+**config**: En este directorio se encuentran las credenciales de acceso a servicios en la nube y la configuración de bases de datos. Es importante mantener esta información segura y separada del código fuente.
 
-<span style="color:white; font-size:14px">**data:** </span>
-A quí se almacenan los archivos de datos utilizados en el proyecto. Estos archivos pueden provenir de diversas fuentes y serán procesados y cargados en la base de datos durante el proceso ETL.
+**data:** A quí se almacenan los archivos de datos utilizados en el proyecto. Estos archivos pueden provenir de diversas fuentes y serán procesados y cargados en la base de datos durante el proceso ETL.
 
-<span style="color:white; font-size:14px">**database:** </span>
-Contiene clases y funciones para manejar la conexión a la base de datos MySQL y ejecutar consultas SQL, así como scripts para la creación de tablas y otros objetos de la base de datos. También incluye conexiones a los servicios de almacenamiento S3 y la base de datos NoSQL MongoDB.
+**database:** Contiene clases y funciones para manejar la conexión a la base de datos MySQL y ejecutar consultas SQL, así como scripts para la creación de tablas y otros objetos de la base de datos. También incluye conexiones a los servicios de almacenamiento S3 y la base de datos NoSQL MongoDB.
 
-<span style="color:white; font-size:14px">**log_error_proceso:** </span>
-Este directorio almacena archivos de registro de errores del proceso. Es útil para identificar y solucionar problemas durante la ejecución del proceso ETL.
+**log_error_proceso:** Este directorio almacena archivos de registro de errores del proceso. Es útil para identificar y solucionar problemas durante la ejecución del proceso ETL.
 
-<span style="color:white; font-size:14px">**mysql_script:** </span>
-Aquí se encuentran scripts para la creación de bases de datos en MySQL. Estos scripts son utilizados para configurar el entorno de base de datos antes de ejecutar el proceso ETL.
+**mysql_script:** Aquí se encuentran scripts para la creación de bases de datos en MySQL. Estos scripts son utilizados para configurar el entorno de base de datos antes de ejecutar el proceso ETL.
 
 [![estructura-proyecto.png](https://i.postimg.cc/5y2Vrtqd/estructura-proyecto.png)](https://postimg.cc/njggjpP0)
 
-<span style="color:white; font-size:30px">Requisitos previos:</span>
+# Requisitos previos:
 
 Antes de ejecutar este proyecto, asegúrese de tener instaladas las siguientes herramientas:
 
@@ -44,8 +36,7 @@ Antes de ejecutar este proyecto, asegúrese de tener instaladas las siguientes h
 
 Asegúrese de tener Python 3.10.6, MySQL y MongoDB instalados y configurados correctamente antes de ejecutar el proyecto.
 
-
-<span style="color:white; font-size:30px">Configuración de bases de datos:</span>
+## Configuración de bases de datos
 
 Para MongoDB, siga estos pasos de configuración:
 
@@ -65,7 +56,7 @@ Este proceso de configuración garantiza que las bases de datos estén listas pa
 
 Puede utilizar su cliente MySQL preferido o ejecutar comandos SQL directamente en la interfaz de línea de comandos.
 
-<span style="color:white; font-size:30px">Configuración de AWS S3:</span>
+## Configuración de AWS S3
 
 Para que el programa pueda conectarse a AWS S3, siga estos pasos de configuración:
 
@@ -85,14 +76,12 @@ Para que el programa pueda conectarse a AWS S3, siga estos pasos de configuraci�
 - El cuarto parámetro PATH_PROYECTO es la ruta del directorio del proyecto en local.
 - Asegúrese de reemplazar 'nombre_del_bucket', 'ruta_del_directorio' y '.extension' con los valores correspondientes según su configuración en AWS S3.
 
-<span style="color:white; font-size:20px">Si no desea que el programa se conecte a un bucket de AWS S3, simplemente puede comentar la línea de código mostrada anteriormente en el archivo proceso_etl_OLTP.py. Por ejemplo:</span>
-
-
-    #aws_s3 = AWSS3Conexion()
-    #aws_s3.listar_archivos('nombre_del_bucket', 'ruta_del_directorio', '.extension', PATH_PROYECTO)
-
-
-<span style="color:white; font-size:30px">Instrucciones de activación del entorno virtual</span>
+##### Si no desea que el programa se conecte a un bucket de AWS S3, simplemente puede comentar la línea de código mostrada anteriormente en el archivo proceso_etl_OLTP.py. Por ejemplo:
+'''
+	#aws_s3 = AWSS3Conexion()
+	#aws_s3.listar_archivos('nombre_del_bucket', 'ruta_del_directorio', '.extension', PATH_PROYECTO)
+	'''
+### Instrucciones de activación del entorno virtual
 
 Para activar el entorno virtual en su sistema, siga estos pasos:
 
@@ -113,7 +102,7 @@ Para instalar las dependencias del proyecto, siga estos pasos:
 
 		pip install -r requirements.txt
 
-<span style="color:white; font-size:30px">Configuración del archivo configuracion.py</span>
+## Configuración del archivo configuracion.py
 
 En el archivo `configuracion.py`, encontrará las siguientes variables globales que deben configurarse correctamente antes de ejecutar el proyecto:
 
@@ -137,12 +126,11 @@ En el archivo `configuracion.py`, encontrará las siguientes variables globales 
 
 [![configuracion-py.png](https://i.postimg.cc/JhBY1H5c/configuracion-py.png)](https://postimg.cc/B84Bp6yX)
 
-<span style="color:white; font-size:30px">Archivos de proceso ETL</span>
+# Archivos de proceso ETL
 
 Los archivos `proceso_etl_OLTP.py` y `proceso_etl_OLAP.py` contienen toda la lógica necesaria para realizar el proceso ETL (Extract, Transform, Load) correspondiente en los modelos OLTP y OLAP, respectivamente. A continuación, se describe brevemente la funcionalidad de cada archivo:
 
-<span style="color:white; font-size:18px">proceso_etl_OLTP.py</span>
-
+### proceso_etl_OLTP.py
 
 Este archivo contiene la lógica para realizar el proceso ETL en el modelo OLTP. Las principales tareas que realiza son:
 
@@ -150,8 +138,7 @@ Este archivo contiene la lógica para realizar el proceso ETL en el modelo OLTP.
 - Realizar las transformaciones necesarias en los datos según las reglas de negocio establecidas.
 - Volcar la información transformada en la base de datos OLTP configurada en el archivo `config.py`.
 
-<span style="color:white; font-size:18px">proceso_etl_OLAP.py</span>
-
+### proceso_etl_OLAP.py
 
 Este archivo contiene la lógica para realizar el proceso ETL en el modelo OLAP. Las principales tareas que realiza son:
 
