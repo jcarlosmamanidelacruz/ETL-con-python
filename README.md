@@ -1,4 +1,4 @@
-## Proceso ETL con MySQL, MongoDB, AWS y Análisis de Datos con Python.
+# Proceso ETL con MySQL, MongoDB, AWS y Análisis de Datos con Python.
 En este proyecto, exploraremos el proceso de Extracción, Transformación y Carga (ETL) de datos utilizando tecnologías como MySQL, MongoDB, AWS y Python. Comenzaremos descargando un conjunto de datos de una plataforma que ofrece datos gratuitos para desarrolladores. Este conjunto de datos servirá como punto de partida para nuestro análisis y procesamiento de datos.
 
 El proceso de ETL implicará la extracción de datos de múltiples fuentes, incluidos archivos TXT, bases de datos MongoDB y archivos almacenados en Amazon S3. Utilizaremos Python para manipular y transformar los datos según sea necesario, preparándolos para su carga en nuestras bases de datos relacionales en MySQL.
