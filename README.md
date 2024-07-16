@@ -1,13 +1,24 @@
 # Proceso ETL con MySQL, MongoDB, AWS y Análisis de Datos con Python.
+
+<br><img src="https://i.postimg.cc/3NyDqN1k/Proceso-ETL.png" alt="">
+
 En este proyecto, exploraremos el proceso de Extracción, Transformación y Carga (ETL) de datos utilizando tecnologías como MySQL, MongoDB, AWS y Python. Comenzaremos descargando un conjunto de datos de una plataforma que ofrece datos gratuitos para desarrolladores. Este conjunto de datos servirá como punto de partida para nuestro análisis y procesamiento de datos.
 
 El proceso de ETL implicará la extracción de datos de múltiples fuentes, incluidos archivos TXT, bases de datos MongoDB y archivos almacenados en Amazon S3. Utilizaremos Python para manipular y transformar los datos según sea necesario, preparándolos para su carga en nuestras bases de datos relacionales en MySQL.
 
+Este proyecto y la documentación de este repositorio se centran más en el proceso de extracción, transformación y carga de datos a las bases de datos tanto OLTP como OLAP que se han diseñado, así como en las configuraciones para desplegar el proyecto. Sin embargo, para llevar a cabo esta carga de datos, ha sido necesario realizar una recolección y análisis de datos previos para poder modelar adecuadamente las bases de datos tanto OLTP como OLAP. Si se necesita más información sobre el proceso de análisis para llevar a cabo el modelamiento y construcción de la base de datos, pueden visitar un proyecto en GitHub que tiene el paso a paso para la creación de la base de datos relacional.
+
+Repositorios en GitHub:
+
+- [Modelado, Carga de Datos con SQL Server y Análisis de Datos con SQL Server](https://github.com/jcarlosmamanidelacruz/Modelado_Carga_Analisis_SQLServer "Modelado, Carga de Datos con SQL Server y Análisis de Datos con SQL Server")
+  
+- [PostgreSQL Modelado y Carga de Datos](https://github.com/jcarlosmamanidelacruz/Postgresq-modelado-y-carga-de-datos "PostgreSQL Modelado y Carga de Datos")
+  
 Una vez que los datos estén cargados en nuestras bases de datos, realizaremos análisis de datos utilizando herramientas y bibliotecas de análisis de datos en Python.
 
 ### Arquitectura de flujo de datos
 
-[![Arquitectura-de-flujo-de-datos-drawio-drawio.png](https://i.postimg.cc/6pyNDNMs/Arquitectura-de-flujo-de-datos-drawio-drawio.png)](https://postimg.cc/zyZMg4mp)
+<br><img src="https://i.postimg.cc/6pyNDNMs/Arquitectura-de-flujo-de-datos-drawio-drawio.png" alt="">
 
 ### Estructura del Proyecto
 El proyecto está organizado en varios directorios, cada uno con un propósito específico:
@@ -24,7 +35,7 @@ El proyecto está organizado en varios directorios, cada uno con un propósito e
 
 **mysql_script:** Aquí se encuentran scripts para la creación de bases de datos en MySQL. Estos scripts son utilizados para configurar el entorno de base de datos antes de ejecutar el proceso ETL.
 
-[![estructura-proyecto.png](https://i.postimg.cc/5y2Vrtqd/estructura-proyecto.png)](https://postimg.cc/njggjpP0)
+<br><img src="https://i.postimg.cc/5y2Vrtqd/estructura-proyecto.png" alt="">
 
 # Requisitos previos:
 
@@ -124,8 +135,7 @@ En el archivo `configuracion.py`, encontrará las siguientes variables globales 
 - `MYSQL_DATABASE`: El nombre de la base de datos de MySQL que se utilizará en el proyecto.
 - `MYSQL_DATABASE_OLAP`: El nombre de la base de datos OLAP de MySQL que se utilizará en el proyecto.
 
-[![configuracion-py.png](https://i.postimg.cc/JhBY1H5c/configuracion-py.png)](https://postimg.cc/B84Bp6yX)
-
+<br><img src="https://i.postimg.cc/JhBY1H5c/configuracion-py.png" alt="">
 # Archivos de proceso ETL
 
 Los archivos `proceso_etl_OLTP.py` y `proceso_etl_OLAP.py` contienen toda la lógica necesaria para realizar el proceso ETL (Extract, Transform, Load) correspondiente en los modelos OLTP y OLAP, respectivamente. A continuación, se describe brevemente la funcionalidad de cada archivo:
@@ -138,6 +148,8 @@ Este archivo contiene la lógica para realizar el proceso ETL en el modelo OLTP.
 - Realizar las transformaciones necesarias en los datos según las reglas de negocio establecidas.
 - Volcar la información transformada en la base de datos OLTP configurada en el archivo `config.py`.
 
+<br><img src="https://i.postimg.cc/zvDxHCq9/1-etl-oltp.png" alt="">
+
 ### proceso_etl_OLAP.py
 
 Este archivo contiene la lógica para realizar el proceso ETL en el modelo OLAP. Las principales tareas que realiza son:
@@ -145,13 +157,15 @@ Este archivo contiene la lógica para realizar el proceso ETL en el modelo OLAP.
 - Leer la información de las fuentes de datos en dataframes.
 - Realizar las transformaciones necesarias en los datos para generar los cubos de datos para el análisis OLAP.
 - Volcar la información transformada en la base de datos OLAP configurada en el archivo `config.py`.
+  
+<br><img src="https://i.postimg.cc/KYyrgPNJ/2-etl-olap.png" alt="">
 
 Asegúrese de revisar y configurar adecuadamente los archivos `configuracion.py` y `proceso_etl_OLTP.py` y `proceso_etl_OLAP.py` antes de ejecutar el proyecto, ya que contienen la configuración y la lógica esencial para el proceso ETL en los modelos OLTP y OLAP.
 
 ## Modelo físico OLTP
 
-[![Modelo-Fisico-OLTP.png](https://i.postimg.cc/gkLJcXpg/Modelo-Fisico-OLTP.png)](https://postimg.cc/xcYYtdcm)
+<br><img src="https://i.postimg.cc/tCkHck1V/Modelo-Fisico-OLTP.png" alt="">
 
 ## Modelo físico OLAP
 
-[![Modelo-Fisico-OLAP.png](https://i.postimg.cc/jS0kx0Xn/Modelo-Fisico-OLAP.png)](https://postimg.cc/BXpCpzRJ)
+<br><img src="https://i.postimg.cc/jS0kx0Xn/Modelo-Fisico-OLAP.png" alt="">
