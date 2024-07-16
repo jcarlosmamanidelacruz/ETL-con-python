@@ -1,6 +1,6 @@
 # Proceso ETL con MySQL, MongoDB, AWS y Análisis de Datos con Python.
 
-<br><img src="https://i.postimg.cc/3NyDqN1k/Proceso-ETL.png" alt="">
+<br><img src="https://i.postimg.cc/DfX2Z1SS/Proceso-ETL.png" alt="">
 
 En este proyecto, exploraremos el proceso de Extracción, Transformación y Carga (ETL) de datos utilizando tecnologías como MySQL, MongoDB, AWS y Python. Comenzaremos descargando un conjunto de datos de una plataforma que ofrece datos gratuitos para desarrolladores. Este conjunto de datos servirá como punto de partida para nuestro análisis y procesamiento de datos.
 
@@ -158,7 +158,7 @@ Este archivo contiene la lógica para realizar el proceso ETL en el modelo OLAP.
 - Realizar las transformaciones necesarias en los datos para generar los cubos de datos para el análisis OLAP.
 - Volcar la información transformada en la base de datos OLAP configurada en el archivo `config.py`.
   
-<br><img src="https://i.postimg.cc/KYyrgPNJ/2-etl-olap.png" alt="">
+<br><img src="https://i.postimg.cc/nVBJZZW7/2-etl-olap.png" alt="">
 
 Asegúrese de revisar y configurar adecuadamente los archivos `configuracion.py` y `proceso_etl_OLTP.py` y `proceso_etl_OLAP.py` antes de ejecutar el proyecto, ya que contienen la configuración y la lógica esencial para el proceso ETL en los modelos OLTP y OLAP.
 
